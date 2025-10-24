@@ -1,35 +1,17 @@
 /* msm8953-qrd */
 &soc {
 	i2c@78b6000 { /* BLSP1 QUP3 */
-		aw2013@45 {
-			compatible = "awinic,aw2013_led-mi8953";
+		led_aw2013: aw2013@45 { /*blink */
+			compatible = "awinic,aw2013-mi8953";
 			reg = <0x45>;
 			vdd-supply = <&pm8953_l10>;
 			vcc-supply = <&pm8953_l5>;
-
-			aw2013,red {
-				aw2013,name = "red";
-				aw2013,id = <0>;
-				aw2013,max-brightness = <255>;
-				aw2013,max-current = <1>;
-				aw2013,rise-time-ms = <3>;
-				aw2013,hold-time-ms = <1>;
-				aw2013,fall-time-ms = <3>;
-				aw2013,off-time-ms = <3>;
-			};
-
-			aw2013,white {
-				aw2013,name = "white";
-				aw2013,id = <0>;
-				aw2013,max-brightness = <150>;
-				aw2013,max-current = <1>;
-				aw2013,rise-time-ms = <3>;
-				aw2013,hold-time-ms = <1>;
-				aw2013,fall-time-ms = <3>;
-				aw2013,off-time-ms = <3>;
-			};
 		};
 	};
+};
+
+&led_aw2013 {
+	AW2013_LED(white, 0)
 };
 
 &spi_6 {
