@@ -6,12 +6,19 @@
 			reg = <0x45>;
 			vdd-supply = <&pm8953_l10>;
 			vcc-supply = <&pm8953_l5>;
+
+			AW2013_LED(red, 0)
+		};
+
+		led_aw2023: aw2023@46 { /*blink */
+			compatible = "awinic,aw2023_led-mi8953";
+			reg = <0x46>;
+			vdd-supply = <&pm8953_l10>;
+			vcc-supply = <&pm8953_l5>;
+
+			AW2023_LED(red, 0)
 		};
 	};
-};
-
-&led_aw2013 {
-	AW2013_LED(white, 0)
 };
 
 &spi_6 {
